@@ -1,6 +1,5 @@
 1 - Documento:
 1.1 - Escolhe modelo de documento.
-1.2 - Verifica se o documento existe/está disponivel.
 
 2 - Validação no Documento:
 2.1 - verifica variaveis.
