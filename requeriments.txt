@@ -1,0 +1,10 @@
+1 - Documento:
+1.1 - Escolhe modelo de documento.
+1.2 - Verifica se o documento existe/está disponivel.
+
+2 - Validação no Documento:
+2.1 - verifica variaveis.
+2.2 - Substitui variaveis.
+
+3 - Devolve o documento pronto:
+3.1 - Gera o Docx
