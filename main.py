@@ -35,17 +35,30 @@ def term_computer():
     }
     return dados_especificos
 
+def term_perifericos():
+    nome_equip = input("Nome do equipamento: ")
+    marca_equip = input("Marca do equipamento: ")
+    estado_equip = input("Estado do equipamento: ")
+    
+    dados_especificos = {
+        "<<nome>>" : nome_equip,
+        "<<marca>>" : marca_equip,
+        "<<estado>>" : estado_equip
+    }
+    return dados_especificos
+
        
 while True:
     print("\n---- Menu ----")
     print("Escolha modelo de termo: ")
     print("1. celular ")
     print("2. Computador ")
-    print("3. Sair ")
+    print("3. perifericos ")
+    print("4. Sair ")
     
     escolha = input("digite uma opção: ")
     
-    if escolha == "1" or escolha == "2":
+    if escolha in ["1", "2", "3"]:
         print("Dados do colaborador")
         nome_colab = input("nome: ")
         user_ad = input("Usuario AD: ")
@@ -55,11 +68,18 @@ while True:
             "<<user>>" : user_ad
         }
         
+        nome_template = ""
         dados_especificos = {}
+        
         if escolha ==  "1":
+            nome_template = "termo_teste_cell.docx"
             dados_especificos = term_cel()
         elif escolha == "2":
+            nome_template = "termo_teste_note.docx"
             dados_especificos = term_computer()
+        elif escolha == "3":
+            nome_template = "termo_teste_perifericos.docx"
+            dados_especificos = term_perifericos()
         
         dados_finais = dados_comuns.copy()
         dados_finais.update(dados_especificos)
@@ -71,7 +91,7 @@ while True:
         
         try:
             #carregar o doc
-            doc =  Document("termo_teste.docx")
+            doc =  Document(nome_template)
             
             #transforma os dados finais em chaves e valorres, dps percorre o documento
             for tag, valor in dados_finais.items():
@@ -100,7 +120,7 @@ while True:
             print(f"Erro ao gerar termo: {e}")
             print(f"Verifique se o arquivo está na pasta correta")
             
-    elif escolha == "3":
+    elif escolha == "4":
         print("saindo do programa")
         break
     else:
